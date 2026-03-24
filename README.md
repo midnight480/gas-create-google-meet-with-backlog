@@ -37,26 +37,31 @@ curl -X POST "https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec" \
   -d '{"issueKey":"PROJECT-123","apiKey":"your_backlog_api_key","spaceUrl":"https://your-space.backlog.com"}'
 ```
 
-## ローカル開発環境のセットアップ (clasp)
+## 自組織への新規導入・セットアップ手順 (他組織の方向け)
 
-このリポジトリは `clasp` (Command Line Apps Script Projects) を使用してローカルでのファイル管理・同期を行っています。
+他の組織の方がこのツールを新たに自分たちの環境（別テナント）へ導入する場合は、以下の手順でそれぞれ独立したGASプロジェクトを作成・デプロイしてください。
 
-1. **依存パッケージのインストール**
+1. **リポジトリのクローンとパッケージインストール**
    ```bash
+   git clone git@github.com:midnight480/gas-create-google-meet-with-backlog-.git
+   cd gas-create-google-meet-with-backlog-
    npm install
    ```
 2. **Google アカウントへログイン**
    ```bash
    npx clasp login
    ```
-3. **クラウド側のGAS環境へコードを反映 (Push)**
+3. **独自のGASプロジェクトを新規作成**
+   ```bash
+   npx clasp create --type webapp --title "Google Meet & Backlog連携ツール"
+   ```
+   ※実行すると、このディレクトリ内にデプロイ用の新しい `.clasp.json` が生成されます。
+4. **コードを自身のGAS環境へ反映 (Push)**
    ```bash
    npx clasp push
    ```
-4. **クラウド側で修正されたコードを取得 (Pull)**
-   ```bash
-   npx clasp pull
-   ```
+5. **デプロイと初期設定 (ブラウザでの作業)**
+   `npx clasp open` コマンドでGASエディタを開き、右上の「デプロイ」>「新しいデプロイ」から「ウェブアプリ」として発行してください。発行したURLを組織内の利用者に共有すれば完了です。
 
 ## 注意事項
 
