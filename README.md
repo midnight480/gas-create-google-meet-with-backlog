@@ -43,8 +43,8 @@ curl -X POST "https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec" \
 
 1. **リポジトリのクローンとパッケージインストール**
    ```bash
-   git clone git@github.com:midnight480/gas-create-google-meet-with-backlog-.git
-   cd gas-create-google-meet-with-backlog-
+   git clone git@github.com:midnight480/gas-create-google-meet-with-backlog.git
+   cd gas-create-google-meet-with-backlog
    npm install
    ```
 2. **Google アカウントへログイン**
